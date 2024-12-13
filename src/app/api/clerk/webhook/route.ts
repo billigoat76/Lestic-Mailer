@@ -2,7 +2,6 @@ import { db } from "@/server/db";
 
 export const POST = async(req : Request) => {
     const {data } = await req.json();
-    console.log('clerk webhook recieved', data);
     const emailAddress = data.email_addresses[0].email_address;
     const firstName = data.first_name;
     const lastName = data.last_name;
@@ -17,5 +16,6 @@ export const POST = async(req : Request) => {
             imageUrl : imageUrl,
         }
     })
+    console.log('user created');
     return new Response('Webhook recieved' , {status : 200});
 }
