@@ -40,5 +40,6 @@ export const GET = async(req : NextRequest)=>{
       accessToken : token.accessToken
     }
   })
-  return NextResponse.redirect('/email')
+
+  return NextResponse.redirect(new URL('/mail',req.url));
 }
